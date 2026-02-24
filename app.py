@@ -135,7 +135,7 @@ def getproductdetails():
 
 
 
-import requests
+import requests 
 import datetime
 import base64
 from requests.auth import HTTPBasicAuth
