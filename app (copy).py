@@ -7,10 +7,6 @@ import os
 # initilize app
 app=Flask(__name__)
 
-
-from flask_cors import CORS
-CORS(app)
-
 # configure your project to save the image too our folder(any time we upload image its saved in static images)
 app.config["UPLOAD_FOLDER"]='static/images'
 
@@ -27,7 +23,7 @@ def signup():
 
     # connecting to our database
 
-    connection=pymysql.connect(user="agnes",host="mysql-agnes.alwaysdata.net",password="modcom1234",database="agnes_sokogarden")
+    connection=pymysql.connect(user="root",host="localhost",password="",database="simbasokogarden")
 
     # executing sql queries
 
@@ -55,7 +51,7 @@ def signin():
     password=request.form["password"]
 
     # connect to database
-    connection=pymysql.connect(user="agnes",host="mysql-agnes.alwaysdata.net",password="modcom1234",database="agnes_sokogarden")
+    connection=pymysql.connect(user="root",host="localhost",password="",database="simbasokogarden")
 
     # connect to sql queries
     cursor=connection.cursor(pymysql.cursors.DictCursor)
@@ -100,7 +96,7 @@ def addproducts():
     product_photo.save(photopath)
 
     # connect to database
-    connection=pymysql.connect(user="agnes",host="mysql-agnes.alwaysdata.net",password="modcom1234",database="agnes_sokogarden")
+    connection=pymysql.connect(user="root",host="localhost",password="",database="simbasokogarden")
 
     # connect to sql query
     cursor=connection.cursor()
@@ -123,7 +119,7 @@ def addproducts():
 @app.route("/api/getproductdetails")
 def getproductdetails():
 
-    connection=pymysql.connect(user="agnes",host="mysql-agnes.alwaysdata.net",password="modcom1234",database="agnes_sokogarden")
+    connection=pymysql.connect(user="root",host="localhost",password="",database="simbasokogarden")
 
     cursor=connection.cursor(pymysql.cursors.DictCursor)
 
@@ -227,5 +223,5 @@ def mpesa_payment():
 
 
 
-# app.run(debug=True)
+app.run(debug=True)
 
